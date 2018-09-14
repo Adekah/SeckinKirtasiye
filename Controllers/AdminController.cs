@@ -14,7 +14,7 @@ namespace Seckinkirtasiye.Controllers
     [RequireHttps]
     public class AdminController : Controller
     {
-
+        adsadsadsa
 
         seckinkirtasiyeEntities db = new seckinkirtasiyeEntities();
 
