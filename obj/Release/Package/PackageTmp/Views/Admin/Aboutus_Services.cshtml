@@ -1,0 +1,33 @@
+﻿@model Seckinkirtasiye.Models.tbl_AboutUs
+@{
+    ViewBag.Title = "aboutus_services";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Aboutus_Services", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "formAboutus_Services" }))
+{
+    @Html.HiddenFor(a => a.Aboutus_ID)
+    @Html.HiddenFor(a => a.AboutUs)
+    <div class="panel">
+        <div class="panel-body">
+            <div class="content">
+                <h4>Hakkımızda</h4>
+                <div class="col-md-12">
+                    @*@Html.TextAreaFor(a => a.AboutUs, new { @class = "form-control", style = "height:100px; border-radius:10px;" })*@
+                    <textarea class="form-control" style="height:100px; border-radius:10px;" id="input_aboutus">
+                 @*@ViewBag.aboutus*@ 
+
+adekaadekaadekaadekaadekaadekaadeka
+
+
+                       </textarea>
+                    <input type="button" id="input_aboutus_button" class="form-control" style="border-radius:10px;background-color: #5daf4e; color:white" value="KAYDET" />
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+}

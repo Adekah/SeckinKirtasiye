@@ -1,0 +1,230 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Seçkin Admin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/core-img/S.png" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/dist/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/skin-green.min.css" rel="stylesheet" />
+    <link href="~/Content/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/side.css" rel="stylesheet" />
+    @*  -----------------------------------------------------------------------------------*@
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/moment.tr.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/dist/js/adminlte.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/side.js"></script>
+
+
+
+
+</head>
+
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="~/Admin/Admin_Home" class="logo">
+                <span class="logo-mini"><b>S</b>ÇK</span>
+                <span class="logo-lg"><b>SEÇKİN </b><i> ADMİN</i></span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Sidebar toggle button-->
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <!-- Menu Toggle Button -->
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="~/img/Admin/user.png" class="img-rounded" alt="Cinque Terre" width="20" height="20">
+
+
+                                <span class="hidden-xs"> @Seckinkirtasiye.Data.Data.getfullname(int.Parse(Session["UserID"].ToString()))</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="~/img/Admin/user.png" alt="Ahmet Saydam" width="60" height="60">
+                                    <p>
+                                        @Seckinkirtasiye.Data.Data.getfullname(int.Parse(Session["UserID"].ToString())) - Web Developer
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+
+                                    <form action="/Admin/Login" method="post" class="pull-right">
+                                        <a href="javascript:;" onclick="parentNode.submit();">
+                                            <span type="button" class="btn btn-danger">Çıkış</span>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <aside class="main-sidebar">
+
+            <section class="sidebar">
+
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/img/Admin/user.png" class="img-rounded" alt="Cinque Terre" width="70" height="70">
+                    </div>
+                    <div class="pull-left info">
+                        <p>@Seckinkirtasiye.Data.Data.getfullname(int.Parse(Session["UserID"].ToString()))</p>
+
+
+                    </div>
+                </div>
+
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header"><b style="font-size:large">Menü</b></li>
+
+                    <li>
+                        <a href="~/Admin/Slider"> <i class="fa fa-image"></i><span>Slider</span>  </a>
+                    </li>
+                    <li>
+                        <a href="~/Admin/Brands"><i class="fa fa-buysellads"></i><span>Markalar</span>   </a>
+                    </li>
+                    <li><a href="~/Admin/Aboutus_Services"><i class=" fa fa-phone-square "></i><span>Hakkımızda ve Servisler</span></a></li>
+                    <li><a href="~/Admin/Services"><i class="fa fa-dashboard"></i><span>İletişim</span></a></li>
+
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <div class="content-wrapper">
+
+            <section class="content-header" id="Layoutbody_ID">
+
+                <div class="container-fluid" style="margin-top:15px">
+                    @RenderBody()
+                </div>
+            </section>
+
+        </div>
+
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 3 -->
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            $('#myCarousel').carousel({
+                interval: 5000
+            });
+
+            //Handles the carousel thumbnails
+            $('[id^=carousel-selector-]').click(function () {
+                var id_selector = $(this).attr("id");
+                try {
+                    var id = /-(\d+)$/.exec(id_selector)[1];
+                    console.log(id_selector, id);
+                    jQuery('#myCarousel').carousel(parseInt(id));
+                } catch (e) {
+                    console.log('Regex failed!', e);
+                }
+            });
+            // When the carousel slides, auto update the text
+            $('#myCarousel').on('slid.bs.carousel', function (e) {
+                var id = $('.item.active').data('slide-number');
+                $('#carousel-text').html($('#slide-content-' + id).html());
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<div class="modal modal-info fade" id="modal-info_Delete_Image" style="display:none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal_Delete_Image">
+                    Değişiklik  olmayacaktır!
+                </h5>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-block btn-outline" type="button" id="btnContinue_Image" data-dismiss="modal">Evet</button>
+                <button class="btn btn-block btn-outline" type="button" id="btnNO" data-dismiss="modal">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal modal-info fade" id="modal-info_Delete" style="display:none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Modal_Delete">
+                    Değişiklik olmayacaktır!
+                </h5>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-block btn-outline" type="button" id="btnContinue" data-dismiss="modal">Evet</button>
+                <button class="btn btn-block btn-outline" type="button" id="btnNO" data-dismiss="modal">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal modal-info fade" id="modal-info_Validate" style="display:none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Bilgilendirme
+                </h5>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-block btn-outline" type="button" id="btnOK" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>

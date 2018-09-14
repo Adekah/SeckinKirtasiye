@@ -1,0 +1,112 @@
+﻿@model Seckinkirtasiye.Models.tbl_slider
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<input message="Slayt" id="DeletewithJS" hidden />
+
+<div class="panel">
+    <div class="panel-body" id="sliderpanel">
+        <h2>Slayt Ayarları</h2><hr />
+        @using (Html.BeginForm("Slider", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormSlider" }))
+        {
+
+            @Html.HiddenFor(Model => Model.Slider_image)
+            @Html.HiddenFor(Model => Model.Slider_image_ID, new { @id = "Slider_image_ID" })
+
+
+
+            <div style="text-align: center;">
+                @if (ViewBag.UpdateSlide == "True")
+                {
+
+                    <img src="~/img/@ViewBag.Slide_Image" style="width: 100%;max-height: 650px;height: auto;" name="input_slider" id="id_sliderimage" />
+                }
+                else
+                {
+                    <img src="~/img/Admin/no-photo.png" style="width: 100%;max-height: 650px;height: auto;" name="input_slider" id="id_sliderimage" />
+                }
+                <i class="fa fa danger" style="color:red">Fotoğraf boyutu 5 MB'yi Geçmemelidir.</i>
+                <input type="file" accept="image/*" name="input_slider" id="input_slider" style="visibility:hidden" />
+                <span id="slider_create_trigger" style="color: red; font-size: 16px;font-family: fantasy;">Yeni slayt resmi eklemek için tıklayınız. </span>
+
+            </div>
+
+
+            <div>
+                <div>
+                    <h5>Slayt Başlığı</h5>
+                    @Html.TextBoxFor(model => model.Slider_image_title, new { @id = "ID_Slider_Image_Title", @class = "form-control" })
+                </div>
+
+                <div>
+                    <h5>Slayt Metni</h5>
+
+                    @Html.TextBoxFor(model => model.Slider_image_text, new { @id = "ID_Slider_Image_Text", @class = "form-control" })
+                </div>
+
+                <div id="btn_div">
+                    @if (ViewBag.UpdateSlide == "True")
+                    {
+                        <input class="btn btn-warning" type="submit" id="_update" value="Slaytı Güncelle" style="background-color:  #f39c12; margin-top: 35px" />
+                    }
+                    else
+                    {
+                        <input class="btn btn-primary" type="submit" value="Slaytı Kaydet" style="background-color: #5daf4e; margin-top: 35px" />
+                    }
+                    <input type="button" value="Yeni Slayt" class="btn btn-primary" style=" margin-top: 35px;width:100px;" onclick="location.href='@Url.Content("~/Admin/Slider")'" />
+                </div>
+
+
+            </div>
+        }
+    </div>
+
+</div>
+
+
+
+<div class="panel panel-default" style="margin-top:150px;">
+    <div class="panel-body">
+        <h2>Slaytlar</h2>
+        <div class="content">
+            <div class="row">
+                <div class="box">
+                    <div class="box-body table-responsive">
+                        <table id="Datatable_Slide" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Slide No</th>
+                                    <th>Slide Fotoğrafı</th>
+                                    <th>Slide Başlığı</th>
+                                    <th>Slide Metni</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{List<Seckinkirtasiye.Models.tbl_slider> _Slider = Seckinkirtasiye.Data.Data.get_Slider();}
+                                @foreach (var slide in _Slider)
+                                {
+                                    <tr>
+                                        <th>@slide.Slider_image_ID</th>
+                                        <td>@slide.Slider_image</td>
+                                        <td>@slide.Slider_image_title</td>
+                                        <td>@slide.Slider_image_text</td>
+                                        <td style="width:10px;text-align:center">
+                                            <i class="fa fa-trash fa-2x" id="_deleteSlide" sID="" value="@slide.Slider_image_ID" style="color:red" title="Slide'ı Sil"></i>
+                                        </td>
+                                        <td style="width:10px;text-align:center">
+                                            <a href="~/Admin/Slider/@slide.Slider_image_ID"><i class="fa fa-floppy-o fa-2x" style="color:#ffd133" aria-hidden="true" title="Slide'ı Güncelle"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

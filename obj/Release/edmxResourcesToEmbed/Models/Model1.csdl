@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="seckinkirtasiyeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_AboutUs">
+    <Key>
+      <PropertyRef Name="Aboutus_ID" />
+    </Key>
+    <Property Name="Aboutus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AboutUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Contact">
+    <Key>
+      <PropertyRef Name="Contact_ID" />
+    </Key>
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Google" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Cep_Tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Gallery">
+    <Key>
+      <PropertyRef Name="image_ID" />
+    </Key>
+    <Property Name="image_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="image_title" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Marka">
+    <Key>
+      <PropertyRef Name="Marka_ID" />
+    </Key>
+    <Property Name="Marka_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Marka_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Marka_logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Services">
+    <Key>
+      <PropertyRef Name="Service_ID" />
+    </Key>
+    <Property Name="Service_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Service_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Service_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Service_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="Slider_image_ID" />
+    </Key>
+    <Property Name="Slider_image_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Slider_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Slider_image_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Slider_image_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="seckinkirtasiyeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_AboutUs" EntityType="Self.tbl_AboutUs" />
+    <EntitySet Name="tbl_Contact" EntityType="Self.tbl_Contact" />
+    <EntitySet Name="tbl_Gallery" EntityType="Self.tbl_Gallery" />
+    <EntitySet Name="tbl_Marka" EntityType="Self.tbl_Marka" />
+    <EntitySet Name="tbl_Services" EntityType="Self.tbl_Services" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+  </EntityContainer>
+</Schema>

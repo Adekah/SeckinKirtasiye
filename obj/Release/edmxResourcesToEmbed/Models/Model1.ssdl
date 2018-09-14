@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="seckinkirtasiyeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_AboutUs">
+    <Key>
+      <PropertyRef Name="Aboutus_ID" />
+    </Key>
+    <Property Name="Aboutus_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AboutUs" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Contact">
+    <Key>
+      <PropertyRef Name="Contact_ID" />
+    </Key>
+    <Property Name="Contact_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Google" Type="nvarchar(max)" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="200" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="15" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="15" />
+    <Property Name="Cep_Tel" Type="nvarchar" MaxLength="15" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Gallery">
+    <Key>
+      <PropertyRef Name="image_ID" />
+    </Key>
+    <Property Name="image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="50" />
+    <Property Name="image_title" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tbl_Marka">
+    <Key>
+      <PropertyRef Name="Marka_ID" />
+    </Key>
+    <Property Name="Marka_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marka_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Marka_logo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Services">
+    <Key>
+      <PropertyRef Name="Service_ID" />
+    </Key>
+    <Property Name="Service_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Service_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Service_Text" Type="nvarchar(max)" />
+    <Property Name="Service_Image" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="Slider_image_ID" />
+    </Key>
+    <Property Name="Slider_image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Slider_image" Type="nvarchar" MaxLength="50" />
+    <Property Name="Slider_image_title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Slider_image_text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_NameSurname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="seckinkirtasiyeModelStoreContainer">
+    <EntitySet Name="tbl_AboutUs" EntityType="Self.tbl_AboutUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Contact" EntityType="Self.tbl_Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Gallery" EntityType="Self.tbl_Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Marka" EntityType="Self.tbl_Marka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Services" EntityType="Self.tbl_Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,100 @@
+﻿@model Seckinkirtasiye.Models.tbl_Marka
+
+@{
+    ViewBag.Title = "brands";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-body">
+        <input  message="Marka"  id="DeletewithJS_Brand" type="hidden"/>
+        <div>
+            <h2>Markalar</h2>
+            @using (Html.BeginForm("Brands", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "formBrands" }))
+            {
+                @Html.HiddenFor(a => a.Marka_logo)
+                @Html.HiddenFor(a => a.Marka_ID)
+                <div class="col-md-3" style="text-align:center">
+                    @if (ViewBag.UpdateBrand == "True")
+                    {
+                        <img src="~/img/marka/@ViewBag.Brand_Image" style="height:300px;" id="Brand_image" class="form-control" />
+                    }
+                    else
+                    {
+                        <img src="~/img/Admin/small-noimages.png" style="height:300px;" id="Brand_image" class="form-control" />
+                    }
+
+
+                    <input type="file" id="input_Brands" style="visibility:hidden" name="Brand_image" accept="image/*" />
+                    <span id="input_Brands_trigger">Yeni logo resmi eklemek için tıklayınız....</span>
+                </div>
+                <div class="col-md-5">
+                    <h5>Marka Adı</h5>
+                    @Html.TextBoxFor(a => a.Marka_name, new { @class = "form-control" })
+
+
+                </div>
+                <div>
+                    @if (ViewBag.UpdateBrand == "True")
+    {
+                <input class="btn btn-warning" type="submit" id="_update" value="Markayı Güncelle" style="background-color:  #f39c12; margin-top: 35px" />
+}
+else
+{
+                <input class="btn btn-primary" type="submit" value="Markayı Kaydet" style="background-color: #5daf4e; margin-top: 35px" />
+}
+
+                    <input type="button" value="Yeni Marka" class="btn btn-primary" style=" margin-top: 35px;width:100px;" onclick="location.href='@Url.Content("~/Admin/Brands")'" />
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel">
+    <div class="panel-body">
+        <div>
+            <h2>Kayıtlı Markalar</h2>
+            <div class="content">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="box-body table-responsive">
+                            <table id="Datatable_Brands" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th>Marka Sırası</th>
+                                        <th>Marka Adı</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{List<Seckinkirtasiye.Models.tbl_Marka> _Slider = Seckinkirtasiye.Data.Data.get_Marka();}
+                                    @foreach (var Brands in _Slider)
+                                    {
+                                        <tr>
+                                            <th>@Brands.Marka_ID</th>
+                                            <td>@Brands.Marka_name</td>
+
+                                            <td style="width:10px;text-align:center">
+                                                <i class="fa fa-trash fa-2x" id="_deleteBrand" bID="" value="@Brands.Marka_ID" style="color:red" title="Markayı Sil"></i>
+                                            </td>
+                                            <td style="width:10px;text-align:center">
+                                                <a href="~/Admin/Brands/@Brands.Marka_ID"><i class="fa fa-floppy-o fa-2x" style="color:#ffd133" aria-hidden="true" title="Markayı Güncelle"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

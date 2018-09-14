@@ -1,0 +1,248 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>
+        Seçkin Kırtasiye
+    </title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/core-img/S.png" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/classy-nav.min.css" rel="stylesheet" />
+    <link href="~/Content/side.css" rel="stylesheet" />
+
+</head>
+<body>
+    <style>
+    </style>
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+    </div>
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="header-content h-100 d-flex align-items-center justify-content-between">
+                            <div class="academy-logo">
+                                <a href="/Default/Index"><img src="~/img/core-img/seckin.png" style="max-width:300px;" alt="Seçkin Kırtasiye"></a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+
+
+                                    <li><a href="#home" style="font-size:16px;">ANASAYFA</a></li>
+                                    <li><a href="#markalar" style="font-size:16px;">MARKALARIMIZ</a></li>
+                                    <li><a href="#aboutus" style="font-size:16px;">HAKKIMIZDA</a></li>
+                                    <li><a href="#services" style="font-size:16px;">HİZMETLERİMİZ</a></li>
+                                    <li><a href="#contact" style="font-size:16px;">İLETİŞİM</a></li>
+
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href=""><i class="icon-telephone-2"></i> <span style="font-size:20px;"> (212)  286-58-67</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div>
+
+        @RenderBody()
+
+
+    </div>
+
+
+
+
+    <footer class="footer-area">
+        <div class="main-footer-area section-padding-100-0">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Widget Area -->
+                    @*<div class="col-12 col-sm-6 col-lg-3">
+                            <div class="footer-widget mb-100">
+                                <div class="widget-title">
+                                    <a href="#"><img src="~/img/core-img/logo2.png" alt=""></a>
+                                </div>
+                                <p>cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. donec et sollicitudin est, in euismod erat. ut at erat et arcu pulvinar cursus a eget.</p>
+                                <div class="footer-social-info">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-behance"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Footer Widget Area -->
+                        @*<div class="col-12 col-sm-6 col-lg-3">
+                            <div class="footer-widget mb-100">
+                                <div class="widget-title">
+                                    <h6>Usefull Links</h6>
+                                </div>
+                                <nav>
+                                    <ul class="useful-links">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Services &amp; Features</a></li>
+                                        <li><a href="#">Accordions and tabs</a></li>
+                                        <li><a href="#">Menu ideas</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>*@
+
+                    @{
+                        Seckinkirtasiye.Models.tbl_Contact contact = @ViewBag.Contact;
+                        int counter = 0;
+                    }
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>GALERİ</h6>
+                            </div>
+                            <div class="gallery-list d-flex justify-content-between flex-wrap">
+                                @foreach (Seckinkirtasiye.Models.tbl_Gallery gallery in ViewBag.GalleryImages)
+                                {
+                                    counter = counter + 1;
+                                    if (counter <= 6)
+                                    {
+                                        <a href="/img/bg-img/@gallery.image" class="gallery-img" title="@gallery.image_title">
+                                            <img src="/img/bg-img/@gallery.image" alt="" style="height: 85px; width: 65px;">
+
+                                        </a>
+                                    }
+                                    else if (counter > 6)
+                                    {
+                                        <a href="/img/bg-img/@gallery.image" class="gallery-img" title="@gallery.image_title" style="display:none"></a>
+                                    }
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-5">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>İLETİŞİM</h6>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-placeholder"></i>
+                                <p><b>@contact.Adress</b></p>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-telephone-1"></i>
+                                <p> <b>Tel : @contact.Tel </b></p>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                                <i class="icon-telephone-1"></i>
+                                <p><b>Cep Tel : @contact.Cep_Tel</b></p>
+                            </div>
+                            <div class="single-contact d-flex">
+                                <i class="icon-contract"></i>
+                                <p><b>@contact.Mail</b></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                            <div class="widget-title">
+                                <h6>HAKKIMIZDA</h6>
+                            </div>
+                            <p><b> 22 Yıllık tecrübemiz ve güler yüzümüzle aynı adreste müşterilerimize en iyi hizmeti veriyoruz  </b></p>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+
+                            <script>document.write(new Date().getFullYear());</script> Seçkin Kırtasiye || Tüm Hakları Saklıdır
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/js/bootstrap/popper.min.js"></script>
+    <script src="~/Scripts/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/plugins/plugins.js"></script>
+    <script src="~/Scripts/js/active.js"></script>
+    <script src="~/Scripts/side.js"></script>
+
+
+
+</body>
+</html>
+
+

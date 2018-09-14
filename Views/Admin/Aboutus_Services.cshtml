@@ -1,0 +1,50 @@
+﻿@model Seckinkirtasiye.Models.tbl_AboutUs
+@{
+    /**/
+
+    ViewBag.Title = "aboutus_services";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="content">
+            <h4>Hakkımızda</h4>
+            <div class="col-md-12">
+                <textarea class="form-control" style="height:150px; border-radius:10px;" id="input_aboutus">@ViewBag.aboutus  </textarea>
+                <input type="button" id="input_aboutus_button" class="form-control" style="border-radius:10px;background-color: #5daf4e; color:white" value="KAYDET" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@using (Html.BeginForm("Aboutus_Services", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "formAboutus_Services" }))
+{
+
+    <div class="panel" style="margin-top:150px;">
+        <div class="panel-body">
+            <h4> HİZMETLERİMİZ VE ÜRÜN ÇEŞİTLERİMİZ</h4>
+            <div class="content">
+                <div class="col-md-3" style="text-align:center">
+                    <img src="~/img/Admin/small-noimages.png" style="height:500px;width:100%;border: 1px solid #3c8dbc;" />
+                    <input type="file" accept="image/*" style="visibility:hidden" id="input_services" />
+                    <span id="input_services_trigger">Yeni servis resmi eklemek için tıklayınız...</span>
+                </div>
+
+                <div>
+
+                    @*@Html.TextBoxFor(a => a.ser, new { @class = "form-control" })*@
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+}

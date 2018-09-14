@@ -1,0 +1,42 @@
+﻿@model Seckinkirtasiye.Models.tbl_Services
+
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Services", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "form_Services" }))
+{
+
+    <div class="panel" style="margin-top:150px;">
+        <div class="panel-body">
+
+            <div class="content">
+                <div class="col-md-3" style="text-align:center">
+                    <h4> HİZMETLERİMİZ VE ÜRÜN ÇEŞİTLERİMİZ</h4>
+                    <img src="~/img/Admin/small-noimages.png" style="height:500px;width:100%;border: 1px solid #3c8dbc;" />
+                    <input type="file" accept="image/*" style="visibility:hidden" id="input_services" />
+                    <span id="input_services_trigger">Yeni servis resmi eklemek için tıklayınız...</span>
+                </div>
+
+                <div class="col-md-5">
+                    <h5>Servis Adı</h5>
+                    @Html.TextBoxFor(a => a.Service_Name, new { @class = "form-control" })
+                    <h5>Servis Metni</h5>
+                    @Html.TextBoxFor(a => a.Service_Text, new { @class = "form-control" })
+                    <div>
+                        <input type="submit" value="Servisi Kaydet" class="" style="margin-top:20px;" />
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+}

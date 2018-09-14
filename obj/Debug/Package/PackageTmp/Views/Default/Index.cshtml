@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<section class="hero-area">
+    <div class="hero-slides owl-carousel" id="home">
+
+
+
+        @{ var counter = 0; var counter2 = 1;}
+        @foreach (Seckinkirtasiye.Models.tbl_slider imgs in ViewBag.SliderImage)
+        {
+            if (counter == 0)
+            {
+                { counter = 1; }
+                <div class="single-hero-slide bg-img" data-slide-number=@string.Concat(counter2) style="background-image:url(/img/@imgs.Slider_image)">
+                    @*<img src="~/img/@imgs.Slider_image" style="width:100%;height:850px">*@
+
+
+                    <div class="container h-100">
+                        <div class="row h-100 align-items-center">
+                            <div class="col-12">
+                                <div class="hero-slides-content">
+                                    <h4 data-animation="fadeInUp" data-delay="100ms">@imgs.Slider_image_title</h4>
+                                    <h2 data-animation="fadeInUp" data-delay="400ms">@imgs.Slider_image_text</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="single-hero-slide bg-img" data-slide-number=@string.Concat(counter2) style="background-image:url(/img/@imgs.Slider_image)">
+
+
+                    @*<img src="~/img/@imgs.Slider_image" style="width:100%;height:850px">*@
+
+                    <div class="container h-100">
+                        <div class="row h-100 align-items-center">
+                            <div class="col-12">
+                                <div class="hero-slides-content">
+                                    <h4 data-animation="fadeInUp" data-delay="100ms">@imgs.Slider_image_title</h4>
+                                    <h2 data-animation="fadeInUp" data-delay="400ms">@imgs.Slider_image_text</h2>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                counter2 = counter2 + 1;
+
+            }
+
+        }
+    </div>
+</section>
+
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+
+<div class="top-features-area wow fadeInUp" data-wow-delay="300ms">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="features-content">
+                    <div class="row no-gutters">
+                        <!-- Single Top Features -->
+                        <div class="col-12 col-md-4">
+
+                            <div class="single-top-features d-flex align-items-center justify-content-center">
+                                <i class="icon-agenda-1"></i>
+                                <h5>Kaliteli Ürünler</h5>
+                            </div>
+                        </div>
+                        <!-- Single Top Features -->
+                        <div class="col-12 col-md-4">
+                            <div class="single-top-features d-flex align-items-center justify-content-center">
+                                <i class="icon-assistance"></i>
+                                <h5>Güler Yüz ve Düzgün Hizmet</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <div class="single-top-features d-flex align-items-center justify-content-center">
+                                <i class="icon-telephone-3"></i>
+                                <h5>7 Gün 12 Saat açık</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+
+<div class="academy-courses-area section-padding-100-0" id="markalar">
+    <div class="container">
+        <div class="section-heading text-center mx-auto white wow fadeInUp testimonial-content single-course-area" data-wow-delay="300ms">
+            <h2 style="color:#80c236;"><b>Başlıca Markalarımız</b></h2>
+        </div>
+        <div class="row">
+
+
+
+            @foreach (Seckinkirtasiye.Models.tbl_Marka marka in ViewBag.Marka)
+            {
+                <div class="col-12 col-sm-4 col-lg-2" id="Markalar">
+
+                    <div class="course-icon">
+                        <img src="~/img/marka/@marka.Marka_logo" />
+                    </div>
+                    <div class="course-content">
+                        <h4>@marka.Marka_name</h4>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+
+
+<div class="testimonials-area section-padding-100 bg-img bg-overlay" id="aboutus" style="background-image: url(/img/bg-img/bg-2.jpg);">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="section-heading text-center mx-auto white wow fadeInUp testimonial-content single-course-area" data-wow-delay="300ms">
+                    <span style="font-size:25px; color:#80c236;">Hakkımızda</span>
+
+                    <div class="course-icon " style=" margin-left: 30px; display: inline-block; margin-top: 30px;margin-bottom: 30px;">
+                        <i class="icon-id-card"></i>
+                    </div>
+
+                    <div class="course-content">
+                        <h2 style="color:white">@ViewBag.AboutUs</h2>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+@* ----------------------------------------------------------------------------------------------------------------------- *@
+
+
+
+<div class="top-popular-courses-area section-padding-100" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+
+                    <h3 style="color:#80c236;">HİZMETLERİMİZ VE ÜRÜN ÇEŞİTLERİMİZ</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach (Seckinkirtasiye.Models.tbl_Services Services in ViewBag.Services)
+            {
+
+
+                <div class="col-12 col-lg-6">
+                    <div class="single-top-popular-course d-flex  flex-wrap mb-30 wow fadeInUp" data-wow-delay="700ms">
+                        <div class="popular-course-content" style="text-align:center">
+                            <h5><b>@Services.Service_Name</b></h5>
+
+
+                            <p style="color:red;margin-top:25px;">@Services.Service_Text</p>
+
+                        </div>
+                        <div class="popular-course-thumb bg-img" style="background-image: url(/img/Services/@Services.Service_Image);"></div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@{
+    Seckinkirtasiye.Models.tbl_Contact contact = @ViewBag.Contact;
+
+}
+
+<div class="breadcumb-area bg-img" style="background-image: url(/img/bg-2.jpg); height:500px;">
+    <div class="bradcumbContent">
+        <h2>İletişim</h2>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+<!-- ##### Google Maps ##### -->
+<div class="map-area wow fadeInUp" data-wow-delay="300ms">
+    <div id="googleMap">
+        <iframe src="@contact.Google" width="100%" height="700" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    </div>
+</div>
+
+<!-- ##### Contact Area Start ##### -->
+<section class="contact-area" id="contact">
+    <div class="container">
+        <div class="row">
+            <div  style="width: 100%;">
+                <div class="contact-content">
+                    <div class="row">
+                        <!-- Contact Information -->
+                        <div style="margin-left: 25%;">
+                            <div class="contact-information wow fadeInUp" data-wow-delay="400ms">
+                                <div class="section-heading text-left" style="text-align:center">
+
+                                    <h3>İletişim Bilgileri</h3>
+
+                                </div>
+
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-placeholder"></i>
+                                    </div>
+                                    <p><b>@contact.Adress</b></p>
+                                </div>
+
+
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-telephone-1"></i>
+                                    </div>
+                                    <p><b style="font-size: 16px;">@contact.Tel</b></p>
+                                </div>
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-telephone-1"></i>
+                                    </div>
+                                    <p><b> Cep : @contact.Cep_Tel</b></p>
+                                </div>
+
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="contact-icon mr-15">
+                                        <i class="icon-contract"></i>
+                                    </div>
+                                    <p><b>@contact.Mail</b></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@*<div class="col-12" style="background:linear-gradient(to right, #61ba6d, #83c331);" id="contact">
+        <div class="cta-content d-flex align-items-center justify-content-between flex-wrap">
+
+            @{
+                Seckinkirtasiye.Models.tbl_Contact contact = @ViewBag.Contact;
+
+            }
+
+            <div class="col-md-8" style="text-align: center;margin-top:40px;margin-bottom:20px;">
+
+                <iframe src="@contact.Google" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+
+
+            <div class="col-md-4" style="background-color: white; text-align:center; padding: 30px;border-radius:10px; margin-bottom: 20px;;">
+                <div class="footer-widget ">
+                    <div class="widget-title"style="margin-bottom:55px;">
+                        <h2 class="elementor-heading-title elementor-size-default" style="font-family:fantasy">Adres</h2>
+                    </div>
+
+                  <div class="single-contact d-flex mb-30">
+                        <i class="icon-placeholder" style="color: #69bc5f;font-size: 20px;margin-right: 15px;padding-top: 7px;"></i>
+
+                        <p><b>@contact.Adress</b></p>
+                    </div>
+                    <div class="single-contact d-flex mb-30">
+                        <i class="icon-telephone-1"style="color: #69bc5f;font-size: 20px;margin-right: 15px;padding-top: 7px;"></i>
+                        <p><b>@contact.Tel</b> </p>
+                    </div>
+                    <div class="single-contact">
+                        <div class="single-contact d-flex mb-30">
+                            <i class="icon-telephone-1" style="color: #69bc5f;font-size: 20px;margin-right: 15px;padding-top: 7px;"></i>
+                            <p><b>@contact.Cep_Tel </b></p>
+                        </div>
+                        <div class="single-contact d-flex">
+                            <i class="icon-contract"style="color: #69bc5f;font-size: 20px;margin-right: 15px;padding-top: 7px;"></i>
+                            <p><b>@contact.Mail</b></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>*@

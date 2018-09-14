@@ -1,0 +1,142 @@
+﻿
+@font-face {
+    font-family: 'classy';
+    src: url('../../fonts/classy.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'classy';
+    src: url('../../fonts/classy.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'fontawesome-webfont';
+    src: url('../../fonts/fontawesome-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'fontawesome-webfont';
+    src: url('../../fonts/fontawesome-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../../fonts/FontAwesome.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../../fonts/icomoon.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../../fonts/icomoon.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../../fonts/icomoon.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'fontawesome-webfont';
+    src: url('../../fonts/fontawesome-webfont.eot') format('embedded-opentype');
+}
+
+#yazi {
+    margin-left: 150px;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+#Markalar {
+    /*border-style: double;*/
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.classy-menu.menu-on {
+    background-color: red;
+}
+
+#Logincontainer {
+    width: 500px;
+    height: 600px;
+    text-align: center;
+    position: relative;
+    margin: auto;
+    margin-top: 150px;
+    border-radius:145px;
+}
+
+#LoginBackground {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#input_username {
+    width: 350px;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#btnlogin {
+    width: 200px;
+    height: 40px;
+    margin-top: 25px;
+    left: auto;
+    top: auto;
+}
+
+#input_pass {
+    width: 350px;
+    height: 50px;
+    margin-top: 25px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -20px;
+}
+
+#adminimage {
+    max-height: 250px
+}
+
+#user {
+    margin-right: 70px;
+    margin-top: 6px
+}
+
+#lock {
+    margin-top: 10px;
+    margin-right: 70px;
+}
+#container button {
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#id_sliderimage {
+    height: 275px;
+    width: 375px;
+    border: 1px solid #3c8dbc;
+    align-items: center;
+    border-radius: 8px;
+}
+#ID_Slider_Image_Title{
+    max-width:700px;
+    border-radius:5px;
+}
+#ID_Slider_Image_Text {
+    max-width: 700px;
+    border-radius: 5px;
+}
+#input_Brands_trigger {
+    color: red;
+    font-size: 16px;
+    font-family: fantasy;
+}

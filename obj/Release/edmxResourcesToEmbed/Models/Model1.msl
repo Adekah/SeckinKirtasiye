@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="seckinkirtasiyeModelStoreContainer" CdmEntityContainer="seckinkirtasiyeEntities">
+    <EntitySetMapping Name="tbl_AboutUs">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_AboutUs">
+        <MappingFragment StoreEntitySet="tbl_AboutUs">
+          <ScalarProperty Name="Aboutus_ID" ColumnName="Aboutus_ID" />
+          <ScalarProperty Name="AboutUs" ColumnName="AboutUs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Contact">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_Contact">
+        <MappingFragment StoreEntitySet="tbl_Contact">
+          <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+          <ScalarProperty Name="Google" ColumnName="Google" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Cep_Tel" ColumnName="Cep_Tel" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Gallery">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_Gallery">
+        <MappingFragment StoreEntitySet="tbl_Gallery">
+          <ScalarProperty Name="image_ID" ColumnName="image_ID" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="image_title" ColumnName="image_title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Marka">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_Marka">
+        <MappingFragment StoreEntitySet="tbl_Marka">
+          <ScalarProperty Name="Marka_ID" ColumnName="Marka_ID" />
+          <ScalarProperty Name="Marka_name" ColumnName="Marka_name" />
+          <ScalarProperty Name="Marka_logo" ColumnName="Marka_logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Services">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_Services">
+        <MappingFragment StoreEntitySet="tbl_Services">
+          <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+          <ScalarProperty Name="Service_Name" ColumnName="Service_Name" />
+          <ScalarProperty Name="Service_Text" ColumnName="Service_Text" />
+          <ScalarProperty Name="Service_Image" ColumnName="Service_Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_slider">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_slider">
+        <MappingFragment StoreEntitySet="tbl_slider">
+          <ScalarProperty Name="Slider_image_ID" ColumnName="Slider_image_ID" />
+          <ScalarProperty Name="Slider_image" ColumnName="Slider_image" />
+          <ScalarProperty Name="Slider_image_title" ColumnName="Slider_image_title" />
+          <ScalarProperty Name="Slider_image_text" ColumnName="Slider_image_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_User">
+      <EntityTypeMapping TypeName="seckinkirtasiyeModel.tbl_User">
+        <MappingFragment StoreEntitySet="tbl_User">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="User_Username" ColumnName="User_Username" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="User_NameSurname" ColumnName="User_NameSurname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
